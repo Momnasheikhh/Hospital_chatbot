@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dow Hospital Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="chat-box">
+  <div class="bot-msg">👋 Hello! Dow Hospital se related sawal poochain.</div>
+</div>
+
+<div class="input-box">
+  <input id="msg" placeholder="Type a message..." />
+  <button onclick="send()">Send</button>
+</div>
+
+<script>
+function send(){
+  let msg = document.getElementById("msg").value;
+  if(!msg) return;
+
+  // user message add
+  document.querySelector(".chat-box").innerHTML +=
+    `<div class="user-msg">${msg}</div>`;
+
+  // scroll down
+  document.querySelector(".chat-box").scrollTop = document.querySelector(".chat-box").scrollHeight;
+
+  // fetch bot reply
+  fetch("/chat", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({message:msg})
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.querySelector(".chat-box").innerHTML +=
+      `<div class="bot-msg">${data.reply}</div>`;
+    document.querySelector(".chat-box").scrollTop = document.querySelector(".chat-box").scrollHeight;
+  });
+
+  document.getElementById("msg").value = "";
+}
+</script>
+
+</body>
+</html>
