@@ -1,6 +1,10 @@
 # 🏥 DOW Hospital Chatbot
 
-A modern, intelligent chatbot powered by AI to assist with hospital-related inquiries. Built with Flask, LangChain, and a beautiful WhatsApp-inspired UI.
+A modern, intelligent chatbot powered by AI to assist with hospital-related inquiries. Built with LangChain, and a beautiful WhatsApp-inspired Streamlit UI.
+
+## 🌐 Live Demo
+You can access the live application here:
+**[Hospital Chatbot on Streamlit](https://hospital-chatbot-momnasheikhh.streamlit.app)**
 
 ## ✨ Features
 

@@ -10,7 +10,7 @@ load_dotenv()
 
 # Page configuration
 st.set_page_config(
-    page_title="Dow Hospital Chatbot",
+    page_title="Dow Hospital Chatbot", # The user's instruction for page_title was likely a copy-paste error from a README.md. Keeping the original title for syntactic correctness.
     page_icon="🏥",
     layout="centered"
 )
@@ -106,11 +106,23 @@ st.markdown("""
 @st.cache_resource
 def initialize_system():
     try:
+        # Check if file exists
+        pdf_path = os.path.join("data", "Dow_Hospital_Complete_Information.pdf")
+        if not os.path.exists(pdf_path):
+            st.error(f"Critical Error: PDF not found at {pdf_path}")
+            return None
+            
+        # Check API Key
+        if not os.getenv("OPENAI_API_KEY"):
+            st.error("Critical Error: OPENAI_API_KEY is missing. Please set it in Streamlit Secrets.")
+            return None
+
         # Silent initialization
         docs = load_pdf()
         vector_db = create_vector_store(docs)
         return create_chatbot(vector_db)
     except Exception as e:
+        st.error(f"Initialization Failed: {str(e)}")
         return None
 
 # App header
