@@ -1,5 +1,6 @@
 flask
 langchain
+langchain-community
 openai
 faiss-cpu
 pypdf
