@@ -59,10 +59,10 @@ OPENAI_API_KEY=your_key_here
 
 ### 5. Run Chatbot
 ```bash
-python app.py
+streamlit run streamlit_app.py
 ```
 
-Open browser: **http://127.0.0.1:5000**
+Open browser: **http://localhost:8501**
 
 ## 📂 Project Structure
 
