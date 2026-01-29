@@ -112,9 +112,17 @@ def initialize_system():
             st.error(f"Critical Error: PDF not found at {pdf_path}")
             return None
             
-        # Check API Key
-        if not os.getenv("OPENAI_API_KEY"):
-            st.error("Critical Error: OPENAI_API_KEY is missing. Please set it in Streamlit Secrets.")
+        # Check API Key (Check st.secrets first, then os.getenv)
+        api_key = None
+        if "OPENAI_API_KEY" in st.secrets:
+            api_key = st.secrets["OPENAI_API_KEY"]
+            os.environ["OPENAI_API_KEY"] = api_key # Ensure it's in environment for langchain
+        else:
+            api_key = os.getenv("OPENAI_API_KEY")
+            
+        if not api_key:
+            st.error("Critical Error: OPENAI_API_KEY is missing. Please set it in Streamlit Cloud -> Settings -> Secrets.")
+            st.info("Format: OPENAI_API_KEY = 'sk-...'")
             return None
 
         # Silent initialization
