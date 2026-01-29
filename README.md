@@ -4,7 +4,7 @@ A modern, intelligent chatbot powered by AI to assist with hospital-related inqu
 
 ## 🌐 Live Demo
 You can access the live application here:
-**[Hospital Chatbot on Streamlit](https://hospital-chatbot-momnasheikhh.streamlit.app)**
+**[Hospital Chatbot on Streamlit](https://momnasheikhh-hospital-chatbot-streamlit-app-f4pdup.streamlit.app/)**
 
 ## ✨ Features
 
