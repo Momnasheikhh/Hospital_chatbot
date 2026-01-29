@@ -19,10 +19,10 @@ You can access the live application here:
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Flask, Python
+- **Framework**: Streamlit (Python)
 - **AI/ML**: LangChain, RAG (Retrieval-Augmented Generation)
-- **Vector DB**: Chroma, OpenAI Embeddings
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
+- **Vector DB**: FAISS, OpenAI Embeddings
+- **Frontend**: Custom CSS (WhatsApp Style)
 - **Icons**: Font Awesome 6.4
 
 ## 📋 Requirements
@@ -68,18 +68,19 @@ Open browser: **http://localhost:8501**
 
 ```
 hospital_chatbot/
-├── app.py                 # Main Flask application
+├── streamlit_app.py       # Main Streamlit application (Entry Point)
+├── app.py                 # Legacy Flask application
 ├── requirements.txt       # Python dependencies
 ├── .env                  # Environment variables
 ├── core/
 │   ├── chatbot.py       # Chatbot logic
-│   ├── embeddings.py    # Vector embeddings
-│   ├── pdf_loader.py    # PDF processing
+│   ├── embeddings.py    # Vector embeddings (FAISS)
+│   ├── pdf_loader.py    # PDF processing logic
 │   └── __pycache__/
 ├── data/
-│   └── hospital.pdf     # Hospital documentation
+│   └── Dow_Hospital_Complete_Information.pdf  # Hospital documentation
 └── web/
-    └── style.css        # Stylesheet (if needed)
+    └── style.css        # Stylesheet (for Flask app)
 ```
 
 ## 🎯 How It Works
