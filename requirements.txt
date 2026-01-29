@@ -4,3 +4,5 @@ openai
 faiss-cpu
 pypdf
 python-dotenv
+streamlit
+langchain-openai
